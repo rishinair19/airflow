@@ -7,5 +7,5 @@ user_creation = 'airflow users create --username Rishi --firstname Rishi --lastn
 user_creation_airflow = BashOperator(
    task_id='user_create', 
    bash_command=user_creation,
-   dag=user_creation_airflow,
+   dag=dag,
 )
