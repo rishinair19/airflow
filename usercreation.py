@@ -14,9 +14,11 @@ dag = DAG(
     dag_id=my_dag_id,
     default_args=default_args,
     start_date=datetime(2022, 6, 9),
-    schedule_interval=None	
+    schedule_interval=once	
 )
 
 user_create = BashOperator(task_id='user_create_1',
-                         bash_command="airflow users create --username Rishi --firstname Rishi --lastname Nair --role Admin --email rishi.nair@deepintent.com --password rishi",
+                         bash_command="airflow users create --username Rishi2 --role Admin --password password123",
                          dag=dag)
+
+                         
