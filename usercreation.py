@@ -3,6 +3,7 @@ from airflow.models import DAG
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime, timedelta
 
+my_dag_id = "user_creation"
 
 default_args = {
     'retries': 10,
@@ -10,7 +11,7 @@ default_args = {
 }
 
 dag = DAG(
-    dag_id=user_creation,
+    dag_id=my_dag_id,
     default_args=default_args,
 )
 
