@@ -1,9 +1,19 @@
-from airflow.operators.bash import BashOperator
-from datetime import timedelta, datetime
-from airflow import DAG
+#!/usr/bin/python3
+from airflow.models import DAG
+from airflow.operators.bash_operator import BashOperator
+from datetime import datetime, timedelta
 
-t2 = BashOperator(
-    task_id='user_create',
-    bash_command='airflow users create --username Rishi --firstname Rishi --lastname Nair --role Admin --email rishi.nair@deepintent.com --password rishi',
-    retries=3,
-    dag=dag)
+
+default_args = {
+    'retries': 10,
+    'concurrency': 1
+}
+
+dag = DAG(
+    dag_id=user_creation,
+    default_args=default_args,
+)
+
+user_create = BashOperator(task_id='user_create_1',
+                         bash_command="airflow users create --username Rishi --firstname Rishi --lastname Nair --role Admin --email rishi.nair@deepintent.com --password rishi",
+                         dag=dag)
