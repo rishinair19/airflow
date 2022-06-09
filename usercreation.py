@@ -19,7 +19,12 @@ dag = DAG(
 )
 
 user_create = BashOperator(task_id='user_create_1',
-                         bash_command="airflow users create --username Rishi2 --role Admin --password password123",
+                         bash_command="airflow users create \
+                                        --username Rishi2 \
+                                        --firstname Rishi2 \
+                                        --lastname N \
+                                        --role Admin \
+                                        --email admin@example.org \
+                                        --password password123",
                          dag=dag)
 
-                         
