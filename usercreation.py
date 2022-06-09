@@ -14,7 +14,7 @@ dag = DAG(
     dag_id=my_dag_id,
     default_args=default_args,
     start_date=datetime(2022, 6, 9),
-    schedule_interval=@Once	
+    schedule_interval=@once
 )
 
 user_create = BashOperator(task_id='user_create_1',
