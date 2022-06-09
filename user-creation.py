@@ -1,4 +1,4 @@
-from airflow.operators.bash_operator import BashOperator
+from airflow.operators.bash import BashOperator
 from datetime import timedelta, datetime
 from airflow import DAG
 
